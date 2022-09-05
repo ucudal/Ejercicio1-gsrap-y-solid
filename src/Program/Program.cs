@@ -25,7 +25,14 @@ namespace Full_GRASP_And_SOLID
             recipe.FinalProduct = GetProduct("Café con leche");
             recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
             recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
-            recipe.PrintRecipe();
+            recipe.CalculateTotal(); 
+            /* 
+            Utilice SRP y EXPERT para ver que 
+            la clase recipe era la que tenia los datos 
+            para calcular el total del producto. Ademas,  utilice lo mismo para 
+            crear una clase nueva para imprimir la reseta con todos sus datos
+            */
+            ConsolePrinter.ConsolePrint(recipe);
         }
 
         private static void PopulateCatalogs()
