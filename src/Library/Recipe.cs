@@ -36,16 +36,17 @@ namespace Full_GRASP_And_SOLID.Library
 
         public void CalculateTotal()
         {
-            this.QuantityTotal += 0;
-            this.HourlyCostTotal += 0;
+            this.QuantityTotal = 0;
+            this.HourlyCostTotal = 0;
             this.Total = 0;
 
             foreach (Step step in this.steps)
             {
+                double Time = step.Time;
                 this.QuantityTotal += step.Input.UnitCost * (step.Quantity/1000);
-                this.HourlyCostTotal += step.Equipment.HourlyCost * (step.Time/3600);
+                this.HourlyCostTotal += step.Equipment.HourlyCost * (Time/3600);
             }
-            this.Total = QuantityTotal + HourlyCostTotal;
+            this.Total = this.QuantityTotal + this.HourlyCostTotal;
         }
     }
 }
